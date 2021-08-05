@@ -1,0 +1,136 @@
+﻿@model IEnumerable<PlaceModel>
+
+<div class="row">
+
+
+    @{
+        int FoodJointCount = 0;
+        int TempleCount = 0;
+        int SpaCount = 0;
+        int LibraryCount = 0;
+        int ShoppingCount = 0;
+        int CinemaCount = 0;
+        int MallCount = 0;
+        int LakeCount = 0;
+    }
+    <h3>Food Joints</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Food Joint")
+        {
+            @if (FoodJointCount <= 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                FoodJointCount++;
+            }
+        }
+    }
+
+    <h3>Temples</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Temple")
+        {
+            @if (TempleCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                TempleCount++;
+            }
+        }
+    }
+
+    <h3>Cinema</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Cinema")
+        {
+            @if (CinemaCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                CinemaCount++;
+            }
+        }
+    }
+
+    <h3>Lakes</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Lake")
+        {
+            @if (LakeCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                LakeCount++;
+            }
+        }
+    }
+
+    <h3>Library</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Library")
+        {
+            @if (LibraryCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                LibraryCount++;
+            }
+        }
+    }
+
+    <h3>Mall</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Mall")
+        {
+            @if (MallCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                MallCount++;
+            }
+        }
+    }
+
+    <h3>Shopping</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Shopping")
+        {
+            @if (ShoppingCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                ShoppingCount++;
+            }
+        }
+    }
+
+    <h3>Spa and saloon</h3>
+    @foreach (var place in Model)
+    {
+        @if (place.PlaceCategory == "Spa and saloon")
+        {
+            @if (SpaCount < 3)
+            {
+                <div class="col-md-4">
+                    <partial name="_placeThumbnail" model="@place" />
+                </div>
+                SpaCount++;
+            }
+        }
+    }
+
+</div>

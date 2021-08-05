@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@inject ExploreMalleshwaram.Repository.IPlaceRepository _placeRepository
+    <img src="~/images/Banner.png" width="1600" height="500"/>
+
+<div class="py-5 bg-light">
+    <div class="container">
+
+        @await Component.InvokeAsync("TopPlaces", new { count = 10 })
+
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            //alert("document is ready");
+        })
+    </script>
+}

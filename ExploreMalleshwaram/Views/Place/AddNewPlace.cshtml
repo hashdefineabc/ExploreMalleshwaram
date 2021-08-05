@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 { ViewData["Title"] = "Place Details" + Model.PlaceName; }
+
+*@
+
+@model PlaceModel
+@{
+    ViewData["Title"] = "Add new place";
+}
+
+<div class="container">
+    <h3 class="display-4">Add new place</h3>
+    <hr />
+
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulations!</strong> You've added a new place successfully. <br />
+            Click <a asp-controller="Place" asp-action="GetPlace" asp-route-id="@ViewBag.PlaceId">here</a> to view details
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <form method="post" enctype="multipart/form-data" asp-action="AddNewPlace" asp-controller="Place">
+
+        <div class="form-group">
+            <label asp-for="PlaceName" class="control-label"></label>
+            <input asp-for="PlaceName" class="form-control" required />
+            <span asp-validation-for="PlaceName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PlaceCategory" class="control-label"></label>
+            <select asp-for="PlaceCategory" class="form-control" required>
+                <option value="">Please choose a category</option>
+                <option>Food Joint</option>
+                <option>Temple</option>
+                <option>Lake</option>
+                <option>Mall</option>
+                <option>Cinema</option>
+                <option>Library</option>
+                <option>Shopping</option>
+                <option>Spa and Saloon</option>
+            </select>
+            <span asp-validation-for="PlaceCategory" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PlaceTagLine" class="control-label"></label>
+            <textarea asp-for="PlaceTagLine" class="form-control"></textarea>
+            <span asp-validation-for="PlaceTagLine" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PlaceDescription" class="control-label"></label>
+            <textarea asp-for="PlaceDescription" class="form-control"></textarea>
+            <span asp-validation-for="PlaceDescription" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PlaceAddress" class="control-label"></label>
+            <textarea asp-for="PlaceAddress" class="form-control"></textarea>
+            <span asp-validation-for="PlaceAddress" class="text-danger"></span>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <label asp-for="CoverPhoto" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="CoverPhoto" class="custom-file-input" id="customFile" />
+                <label class="custom-file-label" for="customFile"></label>
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GalleryFiles" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="GalleryFiles" class="custom-file-input" id="customFile" />
+                <label class="custom-file-label" for="customFile"></label>
+            </div>
+            <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Add Place" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
